@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verify } from 'jsonwebtoken'
-import { JWT_SECRET } from '@/lib/auth.config'
 
+// 简单的 session 验证（不使用 JWT，兼容 Edge Runtime）
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
@@ -12,19 +11,14 @@ export function middleware(request: NextRequest) {
       return NextResponse.next()
     }
 
-    // 检查 token
-    const token = request.cookies.get('admin_token')?.value
+    // 检查 cookie 中的登录状态
+    const isLoggedIn = request.cookies.get('admin_logged_in')?.value === 'true'
 
-    if (!token) {
+    if (!isLoggedIn) {
       return NextResponse.redirect(new URL('/admin/login', request.url))
     }
 
-    try {
-      verify(token, JWT_SECRET)
-      return NextResponse.next()
-    } catch {
-      return NextResponse.redirect(new URL('/admin/login', request.url))
-    }
+    return NextResponse.next()
   }
 
   return NextResponse.next()

@@ -4,9 +4,9 @@ export async function POST() {
   const response = NextResponse.json({ success: true })
   
   // 清除 cookie
-  response.cookies.set('admin_token', '', {
+  response.cookies.set('admin_logged_in', '', {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: false,
     sameSite: 'lax',
     maxAge: 0,
     path: '/',

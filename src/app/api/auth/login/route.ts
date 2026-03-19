@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sign } from 'jsonwebtoken'
-
-const JWT_SECRET = 'zhongchao-xingkong-secret-key-2025'
 
 // 管理员账号密码（明文存储，开发环境使用）
 const ADMIN_USER = {
@@ -18,28 +15,22 @@ export async function POST(request: NextRequest) {
 
     // 验证用户名和密码
     if (username === ADMIN_USER.username && password === ADMIN_USER.password) {
-      // 创建 JWT token
-      const token = sign(
-        { username, role: 'admin' },
-        JWT_SECRET,
-        { expiresIn: '7d' }
-      )
+      console.log('登录成功')
 
       const response = NextResponse.json({ 
         success: true, 
         message: '登录成功' 
       })
       
-      // 设置 cookie
-      response.cookies.set('admin_token', token, {
+      // 设置简单的 cookie（不使用 JWT，兼容 Edge Runtime）
+      response.cookies.set('admin_logged_in', 'true', {
         httpOnly: true,
-        secure: false, // 开发环境设为 false
+        secure: false,
         sameSite: 'lax',
         maxAge: 60 * 60 * 24 * 7, // 7天
         path: '/',
       })
 
-      console.log('登录成功')
       return response
     }
 
