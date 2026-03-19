@@ -9,23 +9,19 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="relative w-12 h-12">
+              <div className="relative h-16 w-auto">
                 <img
                   src="/logo.png"
-                  alt="中超星空"
-                  className="w-full h-full object-contain"
+                  alt="湖南中超星空科技"
+                  className="h-full w-auto object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none'
                     e.currentTarget.nextElementSibling?.classList.remove('hidden')
                   }}
                 />
-                <div className="hidden w-full h-full bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">星</span>
+                <div className="hidden h-16 w-auto bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center px-6">
+                  <span className="text-white font-bold text-2xl">中超星空</span>
                 </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-lg">中超星空</span>
-                <span className="text-xs text-gray-400">ZHONGCHAO XINGKONG</span>
               </div>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">

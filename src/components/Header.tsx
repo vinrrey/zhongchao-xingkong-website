@@ -30,32 +30,20 @@ export default function Header({ scrolled }: HeaderProps) {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-12 h-12">
+            <div className="relative h-14 w-auto">
               <img
                 src="/logo.png"
-                alt="中超星空"
-                className="w-full h-full object-contain"
+                alt="湖南中超星空科技"
+                className="h-full w-auto object-contain"
                 onError={(e) => {
                   // 如果logo加载失败，显示备用logo
                   e.currentTarget.style.display = 'none'
                   e.currentTarget.nextElementSibling?.classList.remove('hidden')
                 }}
               />
-              <div className="hidden w-full h-full bg-gradient-to-br from-corporate-blue to-corporate-navy rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">星</span>
+              <div className="hidden h-14 w-auto bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center px-4">
+                <span className="text-white font-bold text-xl">中超星空</span>
               </div>
-            </div>
-            <div className="flex flex-col">
-              <span className={`font-heading font-bold text-lg ${
-                scrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                中超星空
-              </span>
-              <span className={`text-xs ${
-                scrolled ? 'text-gray-500' : 'text-gray-300'
-              }`}>
-                ZHONGCHAO XINGKONG
-              </span>
             </div>
           </Link>
 
