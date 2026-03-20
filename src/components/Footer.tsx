@@ -91,6 +91,11 @@ export default function Footer() {
             <div className="text-gray-400 text-sm">
               © {currentYear} 湖南中超星空科技有限公司 版权所有
             </div>
+            <div className="text-gray-400 text-sm">
+              <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                湘ICP备2026006294号
+              </a>
+            </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
               <a href="#" className="hover:text-white transition-colors">隐私政策</a>
               <a href="#" className="hover:text-white transition-colors">服务条款</a>

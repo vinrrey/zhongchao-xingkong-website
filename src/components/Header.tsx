@@ -29,22 +29,12 @@ export default function Header({ scrolled }: HeaderProps) {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="relative h-14 w-auto">
-              <img
-                src="/logo.png"
-                alt="湖南中超星空科技"
-                className="h-full w-auto object-contain"
-                onError={(e) => {
-                  // 如果logo加载失败，显示备用logo
-                  e.currentTarget.style.display = 'none'
-                  e.currentTarget.nextElementSibling?.classList.remove('hidden')
-                }}
-              />
-              <div className="hidden h-14 w-auto bg-gradient-to-br from-primary-600 to-accent-500 rounded-lg flex items-center justify-center px-4">
-                <span className="text-white font-bold text-xl">中超星空</span>
-              </div>
-            </div>
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <img
+              src="/logo.png"
+              alt="湖南中超星空科技有限公司"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
